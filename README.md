@@ -67,14 +67,18 @@ These insights empower stakeholders with key business metrics, enabling strategi
 ```
 data-warehouse-project/
 │
-├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
+├── datasets/                                   # Raw datasets used for the project (ERP and CRM data)
 │
-├── docs/                               # Project documentation and architecture details
-│   ├── data_architecture.drawio        # Draw.io file shows the project's architecture
-│   ├── data_architecture.png           # PNG file shows the project's architecture
-├── README.md                           # Project overview and instructions
-├── LICENSE                             # License information for the repository
-├── .gitignore                          # Files and directories to be ignored by Git
+├── docs/                                       # Project documentation and architecture details
+│   ├── Data warehouse architecture.drawio      # Draw.io file shows the project's architecture
+│   ├── Data warehouse architecture.png         # PNG file shows the project's architecture
+│   ├── naming_conventions.md                   # PNG file shows the project's architecture
+│
+├── scripts/                                    # All the SQL Scripts used for the project
+│   ├── init_database.sql                       # SQL Script that create our 'DataWarehouse' database and the associate schemas
+├── README.md                                   # Project overview and instructions
+├── LICENSE                                     # License information for the repository
+├── .gitignore                                  # Files and directories to be ignored by Git
 ```
 ---
 
