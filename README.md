@@ -8,7 +8,7 @@ This project demonstrates a comprehensive data warehousing and analytics solutio
 ## 🏗️ Data Architecture
 
 The data architecture for this project follows Medallion Architecture **Bronze** (raw), **Silver** (int), and **Gold** (prm) layers:
-![Data Architecture](<docs/data warehourse architecture.png>)
+![Data Architecture](<docs/Data warehourse architecture.png>)
 
 1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
 2. **Silver Layer**: This layer includes data cleaning, standardization, and normalization processes to prepare data for analysis.
@@ -31,6 +31,9 @@ This project involves:
 - ETL Pipeline Developer  
 - Data Modeling  
 - Data Analytics  
+
+### Roadmap
+To follow all the steps done on this project, click on this Notion's link : [Data Warehouse Roadmap](https://app.notion.com/p/SQL-Data-Warehouse-Project-93be6949a262823b87ca01c6a1fb35cf?source=copy_link)
 
 ---
 
