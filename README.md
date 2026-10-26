@@ -70,13 +70,15 @@ data-warehouse-project/
 ├── datasets/                                   # Raw datasets used for the project (ERP and CRM data)
 │
 ├── docs/                                       # Project documentation and architecture details
-│   ├── Data warehouse architecture.drawio      # Draw.io file shows the project's architecture
-│   ├── Data warehouse architecture.png         # PNG file shows the project's architecture
-│   ├── naming_conventions.md                   # PNG file shows the project's architecture
+│   ├── Data lineage.drawio                     # Draw.io Data flows diagram
+│   ├── Data warehouse architecture.drawio      # Draw.io project architecture
+│   ├── naming_conventions.md                   # Naming convention used
 ├── scripts/                                    # All the SQL Scripts used for the project
 │   ├── init_database.sql                       # SQL Script that create our 'DataWarehouse' database and the associate schemas
+│   ├── bronze/                                 # All the scripts used in the bronze layer : extract and load raw data
+│   ├── silver/                                 # All the scripts used in the silver layer : cleaning data
+│   ├── gold/                                   # All the scripts used in the gold layer : creating final model
 ├── README.md                                   # Project overview and instructions
-├── LICENSE                                     # License information for the repository
 ├── .gitignore                                  # Files and directories to be ignored by Git
 ```
 ---
