@@ -24,14 +24,6 @@ This project involves:
 3. **Data Modeling**: Developing fact and dimension tables optimized for analytical queries.
 4. **Analytics & Reporting**: Creating SQL-based reports and dashboards for actionable insights.
 
-🎯 This repository is an excellent resource for professionals and students looking to showcase expertise in:
-- SQL Development
-- Data Architect
-- Data Engineering  
-- ETL Pipeline Developer  
-- Data Modeling  
-- Data Analytics  
-
 ### Roadmap
 To follow all the steps done on this project, click on this Notion's link : [Data Warehouse Roadmap](https://app.notion.com/p/SQL-Data-Warehouse-Project-93be6949a262823b87ca01c6a1fb35cf?source=copy_link)
 
@@ -73,6 +65,9 @@ data-warehouse-project/
 │   ├── Data lineage.drawio                     # Draw.io Data flows diagram
 │   ├── Data warehouse architecture.drawio      # Draw.io project architecture
 │   ├── naming_conventions.md                   # Naming convention used
+│
+├── report/                                     # Power BI report as pbip format
+│
 ├── scripts/                                    # All the SQL Scripts used for the project
 │   ├── init_database.sql                       # SQL Script that create our 'DataWarehouse' database and the associate schemas
 │   ├── bronze/                                 # All the scripts used in the bronze layer : extract and load raw data
