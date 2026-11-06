@@ -86,8 +86,14 @@
       "date": "06/11/2026",
       "author": "Thomas PARIS",
       "description": "Les titres des graphiques sont plus directs (par exemple « CA par catégorie », « CA N vs N-1 », « Top 10 clients par CA »).\nLes titres des pages sont plus directs : Synthèse des ventes, Analyse des produits, Analyse des clients, Analyse des commandes.\nToute la mise en page utilise désormais la police Segoe UI."
+    },
+    {
+      "version": "0.3",
+      "date": "06/11/2026",
+      "author": "Thomas PARIS",
+      "description": "Le fichier de documentation est renommé « Documentation - Rapport Power BI ».\nLes titres des visuels sans titre propre affichent désormais les noms des champs qu'ils utilisent."
     }
   ],
-  "version": "0.2",
+  "version": "0.3",
   "date": "06/11/2026"
 }
