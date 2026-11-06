@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "title": "Finance - Analyse des ventes",
+    "project": "Finance - Analyse des ventes",
+    "client": "",
+    "author": "Thomas PARIS",
+    "created_by": "Thomas PARIS"
+  },
+  "created_on": "06/11/2026",
+  "descriptions": {
+    "tables": {
+      "dim_customers": "Une ligne par client : identité, date de naissance, genre, pays et situation familiale. Elle contient aussi le nom complet, l'âge et la tranche d'âge calculés.",
+      "dim_products": "Une ligne par produit : nom, gamme, catégorie, sous-catégorie, coût d'achat et date de mise en vente.",
+      "fact_sales": "Une ligne par article vendu dans une commande : produit, client, dates de commande, d'expédition et d'échéance, quantité, prix et montant."
+    },
+    "transformations": {
+      "dim_customers": "La liste des clients est lue directement dans l'entrepôt de données. Trois colonnes ont été ajoutées : le nom complet, l'âge et la tranche d'âge.",
+      "dim_products": "La liste des produits est lue directement dans l'entrepôt de données, sans transformation supplémentaire.",
+      "fact_sales": "Les ventes sont lues directement dans l'entrepôt de données. Les dates sont affichées au format jour/mois/année.",
+      "dim_date": "Calendrier créé dans le rapport : un jour par ligne, de janvier de la première année de commande à décembre de la dernière, avec année, trimestre, mois et jour de la semaine.",
+      "_Mesures": "Table technique qui regroupe tous les indicateurs du rapport. Elle ne contient pas de données."
+    },
+    "pages": {
+      "Synthèse": "Vue d'ensemble : où se crée la croissance des ventes, par mois, catégorie, pays et produit, comparée à l'année précédente.",
+      "Produits": "Quels produits se vendent et avec quelle marge : poids des catégories, rentabilité des sous-catégories et détail par produit.",
+      "Clients": "Qui achète et combien : analyse par âge, pays, genre et situation familiale, évolution des clients actifs et meilleurs clients.",
+      "Commandes": "Quand vend-on le plus : saisonnalité par année et par mois, jour de la semaine le plus fort et détail des lignes de commande."
+    },
+    "visuals": {
+      "40991d36789b434b839f": "Évolution mois par mois du chiffre d'affaires de l'année choisie, comparée à la même période de l'année précédente.",
+      "44320313e92d56393bac": "Nombre de commandes passées sur la période.",
+      "4ccbbe2a7ab2412e44f6": "Nombre de clients ayant acheté sur la période.",
+      "54c75880429ae9c7993e": "Montant moyen d'une commande.",
+      "6e7b6481e8ba0c79f612": "Chiffre d'affaires total de la période filtrée.",
+      "7806cf9d9481f79c81a0": "Marge brute de la période : chiffre d'affaires moins le coût d'achat des produits vendus.",
+      "9200856d578cc15779fb": "Nombre total d'articles vendus.",
+      "9913df04337aba5ed449": "Chiffre d'affaires par pays des clients, du plus important au moins important.",
+      "b6641cf0709d8076d1dd": "Filtre « Catégorie » : limite toutes les analyses de la page aux valeurs choisies.",
+      "d8236af21b2ccf12cdf2": "Filtre « Année » : limite toutes les analyses de la page aux valeurs choisies. L'année 2013 est choisie par défaut.",
+      "d84b03fb7f9cbd090591": "Les dix produits qui rapportent le plus de chiffre d'affaires.",
+      "ddbb4642cce4c67870a2": "Filtre « Pays » : limite toutes les analyses de la page aux valeurs choisies.",
+      "e853f7ea169fbe4b68fa": "Chiffre d'affaires de chaque catégorie de produits, de la plus importante à la moins importante.",
+      "2019f39d698db6304395": "Filtre « Pays » : limite toutes les analyses de la page aux valeurs choisies.",
+      "68429858929a17c72567": "Nombre total d'articles vendus.",
+      "6f267e7d65d26a4ff3d9": "Tableau année par mois du chiffre d'affaires (en milliers), coloré du crème à l'orange : plus la case est foncée, plus les ventes sont fortes.",
+      "7e485da216e5eeb40665": "Chiffre d'affaires du mois le plus fort de la période.",
+      "800680dfa9a42f6c3707": "Filtre « Année » : limite toutes les analyses de la page aux valeurs choisies.",
+      "90bd548fe39abb1ab408": "Détail des lignes de commande : numéro, date, client, produit, quantité, prix et montant.",
+      "bb78b88c6d060aa6bdb7": "Montant moyen d'une commande.",
+      "bc59725ad72e557932cd": "Nombre de commandes passées sur la période.",
+      "d0491d1893de12f9f837": "Filtre « Catégorie » : limite toutes les analyses de la page aux valeurs choisies.",
+      "e971d12bca8418b7a642": "Chiffre d'affaires cumulé pour chaque jour de la semaine.",
+      "06c66c76835f8633fddb": "Prix de vente moyen d'un article.",
+      "580054f8aa292c37bd5d": "Poids de chaque catégorie et sous-catégorie de produits dans le chiffre d'affaires : plus le rectangle est grand, plus la part est importante.",
+      "68dcb31c77525979e7a0": "Marge brute de la période : chiffre d'affaires moins le coût d'achat des produits vendus.",
+      "6bea6840c1f40312c715": "Part de la marge brute dans le chiffre d'affaires.",
+      "6d4942022231d21871cb": "Chaque bulle est une sous-catégorie : sa position montre son chiffre d'affaires et son taux de marge, sa taille la quantité vendue.",
+      "856673996202c023acdf": "Filtre « Année » : limite toutes les analyses de la page aux valeurs choisies. L'année 2013 est choisie par défaut.",
+      "bcc7919325adfd1f0f82": "Chiffre d'affaires total de la période filtrée.",
+      "c3aaf4123e8a2be91211": "Filtre « Catégorie » : limite toutes les analyses de la page aux valeurs choisies.",
+      "deea6e88f8d818ffed83": "Filtre « Gamme » : limite toutes les analyses de la page aux valeurs choisies.",
+      "fb366bef908a8192398c": "Liste des produits avec quantité vendue, chiffre d'affaires, marge et taux de marge, triée du plus gros chiffre d'affaires au plus petit.",
+      "04d4ed898a0263271764": "Chiffre d'affaires moyen par client actif.",
+      "122b428d0003e31875e1": "Nombre de clients ayant acheté sur la période.",
+      "183802c9294e9ad62101": "Chiffre d'affaires selon la situation familiale des clients, avec une couleur par genre.",
+      "2fd28465c86474a9fa5a": "Âge moyen des clients ayant acheté sur la période.",
+      "3dbe10bacfb67f0f1632": "Chiffre d'affaires réalisé auprès de chaque tranche d'âge de clients.",
+      "3f09ac41306426f3eee2": "Nombre de clients ayant acheté, mois par mois.",
+      "5c64c76ab6bed82d9320": "Nombre moyen de commandes par client actif, c'est-à-dire la fréquence d'achat.",
+      "6921f5e4716fc20be360": "Chiffre d'affaires par pays des clients, du plus important au moins important.",
+      "a059b349c09a5fdb2087": "Les dix clients qui rapportent le plus de chiffre d'affaires, avec leur pays et leur nombre de commandes.",
+      "bdeb8ef7a5f4cbe2dbc4": "Filtre « Genre » : limite toutes les analyses de la page aux valeurs choisies.",
+      "e252d7124a8d3a314d38": "Filtre « Année » : limite toutes les analyses de la page aux valeurs choisies. L'année 2013 est choisie par défaut.",
+      "ef93c2700c27d0808d75": "Filtre « Pays » : limite toutes les analyses de la page aux valeurs choisies."
+    }
+  },
+  "history": [
+    {
+      "version": "0.1",
+      "date": "06/11/2026",
+      "author": "Thomas PARIS",
+      "description": "Création du rapport d'analyse des ventes : 4 pages (Synthèse, Produits, Clients, Commandes) aux couleurs orange et crème.\nAjout d'un calendrier et de 28 indicateurs : chiffre d'affaires, marge, commandes, panier moyen, clients actifs et comparaison avec l'année précédente.\nLes données proviennent de l'entrepôt de données (couche « gold »), avec ventes, produits et clients."
+    }
+  ],
+  "version": "0.1",
+  "date": "06/11/2026"
+}

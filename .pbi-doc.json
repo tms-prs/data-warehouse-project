@@ -1,0 +1,6 @@
+{
+  "enabled": true,
+  "doc_path": "docs/Documentation.docx",
+  "after_commit": "ask",
+  "project": "Finance - Analyse des ventes"
+}
