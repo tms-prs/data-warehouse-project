@@ -1,0 +1,108 @@
+table dim_products
+	lineageTag: 4f4658cd-75ae-43ed-b358-b9a5b667ccc0
+
+	column product_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9ebd04a0-53d7-4593-8ad9-09cfaed2eb5f
+		summarizeBy: none
+		sourceColumn: product_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 07eb7b9d-c0bd-4a7c-b536-5979d81dbb90
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_number
+		dataType: string
+		lineageTag: d56c5a7a-4344-48e3-b47b-b4bc15599885
+		summarizeBy: none
+		sourceColumn: product_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: a4877df0-9bde-4e1b-b493-783819f6a165
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_line
+		dataType: string
+		lineageTag: 0caf075d-22bd-4b15-aa62-cb26488e414e
+		summarizeBy: none
+		sourceColumn: product_line
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_id
+		dataType: string
+		lineageTag: a9b0d498-eeab-4592-b504-eb4db756876d
+		summarizeBy: none
+		sourceColumn: category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_name
+		dataType: string
+		lineageTag: 44bf6c2d-bf20-4bc6-9139-7c72fedd3108
+		summarizeBy: none
+		sourceColumn: category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column subcategory
+		dataType: string
+		lineageTag: d49f58b8-dceb-4a70-ae14-fcb16d19096c
+		summarizeBy: none
+		sourceColumn: subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column maintenance
+		dataType: string
+		lineageTag: 9d2813a4-9e84-4cdf-a822-e3a172f30e75
+		summarizeBy: none
+		sourceColumn: maintenance
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a41ad829-c38b-4e58-92f7-b4e42c473e8c
+		summarizeBy: none
+		sourceColumn: cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 00a121b9-a159-4b2d-88d6-d2c0bedc0fb9
+		summarizeBy: none
+		sourceColumn: start_date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_products = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database(".\SQLEXPRESS", "DataWarehouse", [Query = "SELECT * FROM gold.dim_products"])
+				in
+				  Source
+
+	annotation PBI_ResultType = Table
+

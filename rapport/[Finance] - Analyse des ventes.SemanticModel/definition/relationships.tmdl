@@ -1,0 +1,12 @@
+relationship AutoDetected_86ea69e0-762b-4445-9593-a68418e6fd18
+	fromColumn: fact_sales.customer_key
+	toColumn: dim_customers.customer_key
+
+relationship AutoDetected_1d0b7970-a5d5-4ea6-9ddc-8c7e33e88e90
+	fromColumn: fact_sales.product_key
+	toColumn: dim_products.product_key
+
+relationship fact_sales_order_date_to_dim_date
+	fromColumn: fact_sales.order_date
+	toColumn: dim_date.Date
+

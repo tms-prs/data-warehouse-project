@@ -1,0 +1,24 @@
+model Model
+	culture: fr-FR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: fr-FR
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["dim_customers","dim_products","fact_sales"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_customers
+ref table dim_products
+ref table fact_sales
+ref table dim_date
+ref table _Mesures
+
+ref cultureInfo fr-FR
+

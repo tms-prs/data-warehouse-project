@@ -1,0 +1,73 @@
+/// Table de dates calendaires (1 ligne par jour, de janvier de la première année de commande à décembre de la dernière). Grain : jour.
+table dim_date
+	lineageTag: 304b19ba-45b1-442e-bcdf-b4cc108394ff
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isUnique
+		isKey
+		formatString: dd/mm/yyyy
+		lineageTag: 5b5a2a19-e135-4775-8855-9aff05551443
+		summarizeBy: none
+		sourceColumn: [Date]
+
+	column Année
+		dataType: int64
+		formatString: 0
+		lineageTag: 473a14bd-0c5c-4370-8047-b9a338610dd1
+		summarizeBy: none
+		sourceColumn: [Année]
+
+	column Trimestre
+		dataType: string
+		lineageTag: c4f0d025-e397-4da0-bea5-ac571196acdd
+		summarizeBy: none
+		sourceColumn: [Trimestre]
+
+	column 'N° mois'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: da54e7ae-bd04-4601-aa4f-81e6287007a3
+		summarizeBy: none
+		sourceColumn: [N° mois]
+
+	column Mois
+		dataType: string
+		lineageTag: 3c0e06e0-8bc4-4153-8d17-e8379d0edf15
+		summarizeBy: none
+		sourceColumn: [Mois]
+		sortByColumn: 'N° mois'
+
+	column 'N° jour semaine'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: de4aaa48-f76b-456f-a3b8-ff1d96423b86
+		summarizeBy: none
+		sourceColumn: [N° jour semaine]
+
+	column 'Jour semaine'
+		dataType: string
+		lineageTag: b65761c3-7203-4de5-8a0a-3a3ba57bee44
+		summarizeBy: none
+		sourceColumn: [Jour semaine]
+		sortByColumn: 'N° jour semaine'
+
+	partition dim_date = calculated
+		mode: import
+		source =
+				ADDCOLUMNS(
+				    CALENDAR(
+				        DATE(YEAR(MIN(fact_sales[order_date])), 1, 1),
+				        DATE(YEAR(MAX(fact_sales[order_date])), 12, 31)
+				    ),
+				    "Année", YEAR([Date]),
+				    "Trimestre", "T" & QUARTER([Date]),
+				    "N° mois", MONTH([Date]),
+				    "Mois", FORMAT([Date], "mmm", "fr-FR"),
+				    "N° jour semaine", WEEKDAY([Date], 2),
+				    "Jour semaine", FORMAT([Date], "ddd", "fr-FR")
+				)
+

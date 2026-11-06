@@ -1,0 +1,98 @@
+table fact_sales
+	lineageTag: d4744508-76ae-4867-ba31-9ef01ec5a7e7
+
+	column order_number
+		dataType: string
+		lineageTag: 8cd4d37a-95f3-41e8-a80a-17fd56dc3280
+		summarizeBy: none
+		sourceColumn: order_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: af6f68bf-a1b1-4ab7-866a-2a0e1dd7470d
+		summarizeBy: none
+		sourceColumn: product_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5ab288c7-54ad-4af1-8808-82a29dc5c46e
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: af45cb21-5069-4fa4-a7f4-0b271f8c2125
+		summarizeBy: none
+		sourceColumn: order_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column ship_date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 08857f8b-bc1c-404b-a768-5af86ca8f4f0
+		summarizeBy: none
+		sourceColumn: ship_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column due_date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 4e98139a-f9ec-4f6e-93e9-febcd0d57cbf
+		summarizeBy: none
+		sourceColumn: due_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c6bde55e-9acf-4d7a-a642-7d578a81902d
+		summarizeBy: none
+		sourceColumn: sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e64b8dc0-93ba-488d-a9e7-b2302fd65e90
+		summarizeBy: none
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: dc1d7fbb-0610-460f-84d2-8b09c9eec341
+		summarizeBy: none
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_sales = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database(".\SQLEXPRESS", "DataWarehouse", [Query = "SELECT * FROM gold.fact_sales"])
+				in
+				  Source
+
+	annotation PBI_ResultType = Table
+

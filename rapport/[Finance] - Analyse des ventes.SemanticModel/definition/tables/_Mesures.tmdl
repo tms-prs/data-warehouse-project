@@ -1,0 +1,203 @@
+/// Table d'hébergement des mesures du rapport (aucune donnée).
+table _Mesures
+	lineageTag: f7e1c786-3000-4f81-a917-0e0d733375f3
+
+	/// Somme des ventes (colonne sales) sur le contexte de filtre courant.
+	measure 'Chiffre d''affaires' = SUM(fact_sales[sales])
+		formatString: #,##0
+		displayFolder: Ventes
+		lineageTag: a78ddf33-9463-4fc2-b1e2-2bb7244a8756
+
+	/// Somme des quantités vendues.
+	measure 'Quantité vendue' = SUM(fact_sales[quantity])
+		formatString: #,##0
+		displayFolder: Ventes
+		lineageTag: a5482c22-85d8-40f3-affa-1719bd759b73
+
+	/// Nombre de commandes distinctes (une commande peut contenir plusieurs lignes).
+	measure 'Nb commandes' = DISTINCTCOUNT(fact_sales[order_number])
+		formatString: #,##0
+		displayFolder: Ventes
+		lineageTag: 401639cb-3275-4d6d-9a2c-665a4baba440
+
+	/// CA moyen par commande.
+	measure 'Panier moyen' = DIVIDE([Chiffre d'affaires], [Nb commandes])
+		formatString: #,##0
+		displayFolder: Ventes
+		lineageTag: e23b6186-6055-4d80-8098-bea6868a5eeb
+
+	/// Prix moyen pondéré par les quantités (CA / quantité vendue).
+	measure 'Prix moyen' = DIVIDE([Chiffre d'affaires], [Quantité vendue])
+		formatString: #,##0.00
+		displayFolder: Ventes
+		lineageTag: e4eb9a40-9e38-4670-a2fc-9b52b2212bc0
+
+	/// Part du CA dans le total du périmètre sélectionné par les filtres/slicers.
+	measure 'Part du CA %' = DIVIDE([Chiffre d'affaires], CALCULATE([Chiffre d'affaires], ALLSELECTED()))
+		formatString: 0.0%
+		displayFolder: Ventes
+		lineageTag: 1472dd25-bc7c-467e-8d7e-f8749f9db120
+
+	/// CA du mois (année + mois) le plus élevé du périmètre sélectionné.
+	measure 'CA du meilleur mois' = MAXX(SUMMARIZE(dim_date, dim_date[Année], dim_date[N° mois]), [Chiffre d'affaires])
+		formatString: #,##0
+		displayFolder: Ventes
+		lineageTag: 5ac230b6-5884-464c-b448-a561f64a4c1d
+
+	/// Part du meilleur mois dans le CA du périmètre sélectionné.
+	measure 'Part du meilleur mois %' = DIVIDE([CA du meilleur mois], [Chiffre d'affaires])
+		formatString: 0.0%
+		displayFolder: Ventes
+		lineageTag: 7905debb-1f01-4072-8d4c-37784dfc3986
+
+	/// Coût d'achat des produits vendus : quantité × coût unitaire du produit (dim_products[cost]).
+	measure 'Coût total' = SUMX(fact_sales, fact_sales[quantity] * RELATED(dim_products[cost]))
+		formatString: #,##0
+		displayFolder: Marge
+		lineageTag: f804349c-8fad-4a2b-b51b-773ada1f4897
+
+	/// CA moins coût total des produits vendus.
+	measure 'Marge brute' = [Chiffre d'affaires] - [Coût total]
+		formatString: #,##0
+		displayFolder: Marge
+		lineageTag: 535d1d34-3522-4a7b-9cae-4fc5a8792e7d
+
+	/// Marge brute / CA.
+	measure 'Taux de marge' = DIVIDE([Marge brute], [Chiffre d'affaires])
+		formatString: 0.0%
+		displayFolder: Marge
+		lineageTag: c70e58bc-f9a3-45b5-bb90-db4d0d71bbe5
+
+	/// Nombre de clients distincts ayant au moins une ligne de vente dans le périmètre.
+	measure 'Clients actifs' = DISTINCTCOUNT(fact_sales[customer_key])
+		formatString: #,##0
+		displayFolder: Clients
+		lineageTag: d18aef6b-509f-4096-a684-3ac0e0e55ad2
+
+	/// CA moyen par client actif.
+	measure 'CA par client' = DIVIDE([Chiffre d'affaires], [Clients actifs])
+		formatString: #,##0
+		displayFolder: Clients
+		lineageTag: 26a88dcc-f5b1-4de9-892e-09e3c2376a56
+
+	/// Fréquence d'achat : commandes par client actif.
+	measure 'Commandes par client' = DIVIDE([Nb commandes], [Clients actifs])
+		formatString: 0.0
+		displayFolder: Clients
+		lineageTag: ab5ac483-9750-46f5-9994-4c11a0b7df01
+
+	/// Âge moyen des clients actifs dans le périmètre (clients sans date de naissance exclus).
+	measure 'Âge moyen' = AVERAGEX(FILTER(dim_customers, NOT ISBLANK([Chiffre d'affaires])), dim_customers[Âge])
+		formatString: 0.0
+		displayFolder: Clients
+		lineageTag: 1490af3f-672b-4f07-84ab-8ab834e1b8a5
+
+	/// Âge moyen de l'ensemble des clients du référentiel, sert de repère pour l'âge moyen des clients actifs.
+	measure 'Âge moyen (tous clients)' = CALCULATE(AVERAGE(dim_customers[Âge]), REMOVEFILTERS(dim_customers))
+		formatString: 0.0
+		displayFolder: Clients
+		lineageTag: 6271a725-091f-411f-838a-add1c0ebaf6c
+
+	/// CA sur la même période l'année précédente.
+	measure 'CA N-1' = CALCULATE([Chiffre d'affaires], SAMEPERIODLASTYEAR(dim_date[Date]))
+		formatString: #,##0
+		displayFolder: Comparaison N-1
+		lineageTag: 5e47ddbe-b1d3-4003-919c-11cae2966f40
+
+	/// Marge brute sur la même période l'année précédente.
+	measure 'Marge brute N-1' = CALCULATE([Marge brute], SAMEPERIODLASTYEAR(dim_date[Date]))
+		formatString: #,##0
+		displayFolder: Comparaison N-1
+		lineageTag: 14d644c4-9311-48b9-8055-ecae86506ef2
+
+	/// Variation du CA par rapport à la même période l'année précédente.
+	measure 'Évolution CA vs N-1 %' =
+			VAR _prev = [CA N-1]
+			RETURN DIVIDE([Chiffre d'affaires] - _prev, _prev)
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Comparaison N-1
+		lineageTag: c20a023a-af4d-4641-9d4f-2cc29fbb642d
+
+	/// Variation de la marge brute par rapport à N-1.
+	measure 'Évolution marge vs N-1 %' =
+			VAR _prev = [Marge brute N-1]
+			RETURN DIVIDE([Marge brute] - _prev, _prev)
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Comparaison N-1
+		lineageTag: 844cb82f-c2d2-4e7d-8e16-8af113126e0b
+
+	/// Variation du nombre de commandes par rapport à N-1.
+	measure 'Évolution commandes vs N-1 %' =
+			VAR _prev = CALCULATE([Nb commandes], SAMEPERIODLASTYEAR(dim_date[Date]))
+			RETURN DIVIDE([Nb commandes] - _prev, _prev)
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Comparaison N-1
+		lineageTag: 3eecb6aa-e2a2-4647-9aa6-3bbef6c03c22
+
+	/// Variation du panier moyen par rapport à N-1.
+	measure 'Évolution panier moyen vs N-1 %' =
+			VAR _prev = CALCULATE([Panier moyen], SAMEPERIODLASTYEAR(dim_date[Date]))
+			RETURN DIVIDE([Panier moyen] - _prev, _prev)
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Comparaison N-1
+		lineageTag: b079a08b-abc1-4068-a861-ad6e5acf90fd
+
+	/// Variation du nombre de clients actifs par rapport à N-1.
+	measure 'Évolution clients actifs vs N-1 %' =
+			VAR _prev = CALCULATE([Clients actifs], SAMEPERIODLASTYEAR(dim_date[Date]))
+			RETURN DIVIDE([Clients actifs] - _prev, _prev)
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Comparaison N-1
+		lineageTag: 6dada307-9817-4188-9e6f-610502a6259c
+
+	/// Variation de la quantité vendue par rapport à N-1.
+	measure 'Évolution quantité vs N-1 %' =
+			VAR _prev = CALCULATE([Quantité vendue], SAMEPERIODLASTYEAR(dim_date[Date]))
+			RETURN DIVIDE([Quantité vendue] - _prev, _prev)
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Comparaison N-1
+		lineageTag: 38cac861-df45-4060-8d97-2b38d68d07ff
+
+	/// Variation du prix moyen par rapport à N-1.
+	measure 'Évolution prix moyen vs N-1 %' =
+			VAR _prev = CALCULATE([Prix moyen], SAMEPERIODLASTYEAR(dim_date[Date]))
+			RETURN DIVIDE([Prix moyen] - _prev, _prev)
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Comparaison N-1
+		lineageTag: 3c142950-7cd2-4bdf-aab1-b878741efc0a
+
+	/// Variation du CA par client par rapport à N-1.
+	measure 'Évolution CA par client vs N-1 %' =
+			VAR _prev = CALCULATE([CA par client], SAMEPERIODLASTYEAR(dim_date[Date]))
+			RETURN DIVIDE([CA par client] - _prev, _prev)
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Comparaison N-1
+		lineageTag: 98d3730e-68bc-4e42-89e8-1849bcc11707
+
+	/// Variation de la fréquence d'achat par rapport à N-1.
+	measure 'Évolution commandes par client vs N-1 %' =
+			VAR _prev = CALCULATE([Commandes par client], SAMEPERIODLASTYEAR(dim_date[Date]))
+			RETURN DIVIDE([Commandes par client] - _prev, _prev)
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Comparaison N-1
+		lineageTag: a60b5c6c-9d9b-4fcc-8d73-1f2494fe0031
+
+	/// Écart du taux de marge en points de pourcentage par rapport à N-1.
+	measure 'Écart taux de marge vs N-1 (pts)' =
+			VAR _prev = CALCULATE([Taux de marge], SAMEPERIODLASTYEAR(dim_date[Date]))
+			RETURN IF(ISBLANK(_prev), BLANK(), ([Taux de marge] - _prev) * 100)
+		formatString: +0.0" pts";-0.0" pts";0.0" pts"
+		displayFolder: Comparaison N-1
+		lineageTag: 1eae9dd3-f487-4e73-ae35-bfb635ed99c5
+
+	column Dummy
+		dataType: string
+		isHidden
+		lineageTag: f8d13d7d-1dbc-4e5d-a550-0175e96260b5
+		summarizeBy: none
+		sourceColumn: [Dummy]
+
+	partition _Mesures = calculated
+		mode: import
+		source = ROW("Dummy", BLANK())
+
