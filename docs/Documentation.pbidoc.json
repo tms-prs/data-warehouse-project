@@ -80,8 +80,14 @@
       "date": "06/11/2026",
       "author": "Thomas PARIS",
       "description": "Création du rapport d'analyse des ventes : 4 pages (Synthèse, Produits, Clients, Commandes) aux couleurs orange et crème.\nAjout d'un calendrier et de 28 indicateurs : chiffre d'affaires, marge, commandes, panier moyen, clients actifs et comparaison avec l'année précédente.\nLes données proviennent de l'entrepôt de données (couche « gold »), avec ventes, produits et clients."
+    },
+    {
+      "version": "0.2",
+      "date": "06/11/2026",
+      "author": "Thomas PARIS",
+      "description": "Les titres des graphiques sont plus directs (par exemple « CA par catégorie », « CA N vs N-1 », « Top 10 clients par CA »).\nLes titres des pages sont plus directs : Synthèse des ventes, Analyse des produits, Analyse des clients, Analyse des commandes.\nToute la mise en page utilise désormais la police Segoe UI."
     }
   ],
-  "version": "0.1",
+  "version": "0.2",
   "date": "06/11/2026"
 }
