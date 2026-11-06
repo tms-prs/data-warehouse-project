@@ -208,7 +208,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Quelles tranches d''âge pèsent le plus ?'"
+                  "Value": "'CA par tranche d''âge'"
                 }
               }
             }

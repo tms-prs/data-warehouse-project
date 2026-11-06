@@ -19,9 +19,9 @@
               {
                 "textRuns": [
                   {
-                    "value": "Commandes : quand vend-on le plus ?",
+                    "value": "Analyse des commandes",
                     "textStyle": {
-                      "fontFamily": "Georgia",
+                      "fontFamily": "Segoe UI",
                       "fontSize": "26px",
                       "fontWeight": "bold",
                       "color": "#3A2410"
@@ -102,7 +102,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Titre de la page : Commandes : quand vend-on le plus ?'"
+                  "Value": "'Titre de la page : Analyse des commandes'"
                 }
               }
             }

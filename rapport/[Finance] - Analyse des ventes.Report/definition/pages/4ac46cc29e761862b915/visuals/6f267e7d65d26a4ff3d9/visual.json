@@ -78,7 +78,7 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Segoe UI Semibold'"
+                  "Value": "'Segoe UI'"
                 }
               }
             },
@@ -164,7 +164,7 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Segoe UI Semibold'"
+                  "Value": "'Segoe UI'"
                 }
               }
             },
@@ -394,7 +394,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Quels mois de quelles années sont les plus forts ? (CA en milliers)'"
+                  "Value": "'CA par année et mois (en milliers)'"
                 }
               }
             }

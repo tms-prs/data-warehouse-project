@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "OrangeCreme-5c1e7a42.json",
+      "name": "OrangeCreme-9a4d17e3.json",
       "reportVersionAtImport": {
         "visual": "2.14.0",
         "report": "3.4.0",
@@ -19,53 +19,6 @@
       },
       "type": "RegisteredResources"
     }
-  },
-  "objects": {
-    "section": [
-      {
-        "properties": {
-          "verticalAlignment": {
-            "expr": {
-              "Literal": {
-                "Value": "'Top'"
-              }
-            }
-          }
-        }
-      }
-    ]
-  },
-  "resourcePackages": [
-    {
-      "name": "SharedResources",
-      "type": "SharedResources",
-      "items": [
-        {
-          "name": "Fluent2-CY26SU10",
-          "path": "BaseThemes/Fluent2-CY26SU10.json",
-          "type": "BaseTheme"
-        }
-      ]
-    },
-    {
-      "name": "RegisteredResources",
-      "type": "RegisteredResources",
-      "items": [
-        {
-          "name": "OrangeCreme-5c1e7a42.json",
-          "path": "OrangeCreme-5c1e7a42.json",
-          "type": "CustomTheme"
-        }
-      ]
-    }
-  ],
-  "settings": {
-    "useStylableVisualContainerHeader": true,
-    "exportDataMode": "AllowSummarized",
-    "defaultDrillFilterOtherVisuals": true,
-    "allowChangeFilterTypes": true,
-    "useEnhancedTooltips": true,
-    "useDefaultAggregateDisplayName": true
   },
   "filterConfig": {
     "filters": [
@@ -124,5 +77,65 @@
         "isHiddenInViewMode": true
       }
     ]
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "Fluent2-CY26SU10",
+          "path": "BaseThemes/Fluent2-CY26SU10.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "OrangeCreme-9a4d17e3.json",
+          "path": "OrangeCreme-9a4d17e3.json",
+          "type": "CustomTheme"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
   }
 }

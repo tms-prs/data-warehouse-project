@@ -170,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Comment le CA se répartit-il par catégorie ?'"
+                  "Value": "'CA par catégorie et sous-catégorie'"
                 }
               }
             }

@@ -1,5 +1,5 @@
 {
-  "name": "OrangeCreme-5c1e7a42.json",
+  "name": "OrangeCreme-9a4d17e3.json",
   "dataColors": [
     "#D9480F",
     "#F08C00",
@@ -27,17 +27,17 @@
   "textClasses": {
     "callout": {
       "fontSize": 30,
-      "fontFace": "Georgia",
+      "fontFace": "Segoe UI",
       "color": "#3A2410"
     },
     "title": {
       "fontSize": 14,
-      "fontFace": "Georgia",
+      "fontFace": "Segoe UI",
       "color": "#3A2410"
     },
     "header": {
       "fontSize": 12,
-      "fontFace": "Segoe UI Semibold",
+      "fontFace": "Segoe UI",
       "color": "#3A2410"
     },
     "label": {
@@ -85,7 +85,7 @@
         "title": [
           {
             "show": false,
-            "fontFamily": "Georgia",
+            "fontFamily": "Segoe UI",
             "fontSize": 14,
             "bold": true,
             "fontColor": {
@@ -401,7 +401,7 @@
       "*": {
         "header": [
           {
-            "fontFamily": "Segoe UI Semibold",
+            "fontFamily": "Segoe UI",
             "textSize": 10,
             "fontColor": {
               "solid": {

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "6d4942022231d21871cb",
   "position": {
     "x": 816,
@@ -32,6 +32,24 @@
             }
           ]
         },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Mesures"
+                    }
+                  },
+                  "Property": "Quantité vendue"
+                }
+              },
+              "queryRef": "_Mesures.Quantité vendue",
+              "nativeQueryRef": "Quantité vendue"
+            }
+          ]
+        },
         "X": {
           "projections": [
             {
@@ -46,7 +64,8 @@
                 }
               },
               "queryRef": "_Mesures.Chiffre d'affaires",
-              "nativeQueryRef": "Chiffre d'affaires"
+              "nativeQueryRef": "Chiffre d'affaires",
+              "active": true
             }
           ]
         },
@@ -65,24 +84,6 @@
               },
               "queryRef": "_Mesures.Taux de marge",
               "nativeQueryRef": "Taux de marge"
-            }
-          ]
-        },
-        "Size": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Mesures"
-                    }
-                  },
-                  "Property": "Quantité vendue"
-                }
-              },
-              "queryRef": "_Mesures.Quantité vendue",
-              "nativeQueryRef": "Quantité vendue"
             }
           ]
         }
@@ -358,7 +359,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Quelles sous-catégories sont grosses ET rentables ?'"
+                  "Value": "'CA et taux de marge par sous-catégorie'"
                 }
               }
             }

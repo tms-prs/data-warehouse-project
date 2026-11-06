@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "a059b349c09a5fdb2087",
   "position": {
     "x": 976,
@@ -91,8 +91,7 @@
             },
             "direction": "Descending"
           }
-        ],
-        "isDefaultSort": false
+        ]
       }
     },
     "objects": {
@@ -102,7 +101,7 @@
             "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "'Segoe UI Semibold'"
+                  "Value": "'Segoe UI'"
                 }
               }
             },
@@ -283,7 +282,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Top 10 des clients par CA'"
+                  "Value": "'Top 10 clients par CA'"
                 }
               }
             }

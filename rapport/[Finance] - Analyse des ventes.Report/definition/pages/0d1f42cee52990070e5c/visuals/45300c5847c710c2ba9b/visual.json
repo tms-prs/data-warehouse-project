@@ -19,9 +19,9 @@
               {
                 "textRuns": [
                   {
-                    "value": "Ventes : où se crée la croissance ?",
+                    "value": "Synthèse des ventes",
                     "textStyle": {
-                      "fontFamily": "Georgia",
+                      "fontFamily": "Segoe UI",
                       "fontSize": "26px",
                       "fontWeight": "bold",
                       "color": "#3A2410"
@@ -102,7 +102,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Titre de la page : Ventes : où se crée la croissance ?'"
+                  "Value": "'Titre de la page : Synthèse des ventes'"
                 }
               }
             }

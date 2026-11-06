@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "6921f5e4716fc20be360",
   "position": {
     "x": 664,
@@ -66,8 +66,7 @@
             },
             "direction": "Descending"
           }
-        ],
-        "isDefaultSort": false
+        ]
       }
     },
     "objects": {
@@ -233,7 +232,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Quels pays achètent le plus ?'"
+                  "Value": "'CA par pays'"
                 }
               }
             }

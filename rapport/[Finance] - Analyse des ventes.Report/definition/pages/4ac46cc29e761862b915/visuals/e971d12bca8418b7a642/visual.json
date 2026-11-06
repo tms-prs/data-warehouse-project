@@ -208,7 +208,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Quel jour de la semaine vend-on le plus ?'"
+                  "Value": "'CA par jour de la semaine'"
                 }
               }
             }

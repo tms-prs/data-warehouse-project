@@ -309,7 +309,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Le nombre de clients actifs progresse-t-il ?'"
+                  "Value": "'Clients actifs par mois'"
                 }
               }
             }
